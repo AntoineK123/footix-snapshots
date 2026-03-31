@@ -9,11 +9,16 @@ import {
     ComboboxList,
 } from "@/components/ui/combobox"
 
-type Season = { code: string};
+type Season = { code: string };
 
 const SEASONS: Season[] = [
     { code: "2024/2025" },
     { code: "2023/2024" },
+];
+
+const TEAMS: string[] = [
+    'Marseille',
+    'Lyon'
 ];
 
 
@@ -22,6 +27,9 @@ export function TableFiltersCard() {
 
     const selectedSeason = useDataStore((s) => s.selectedSeason);
     const setSelectedSeason = useDataStore((s) => s.setSelectedSeason);
+
+    const selectedTeam = useDataStore((s) => s.selectedTeam);
+    const setSelectedTeam = useDataStore((s) => s.setSelectedTeam);
 
 
     return (
@@ -34,6 +42,19 @@ export function TableFiltersCard() {
                         {SEASONS.map((s) => (
                             <ComboboxItem key={s.code} value={s.code}>
                                 {s.code}
+                            </ComboboxItem>
+                        ))}
+                    </ComboboxList>
+                </ComboboxContent>
+            </Combobox>
+
+            <Combobox value={selectedTeam ?? ""} onValueChange={(team) => setSelectedTeam(team as string)}>
+                <ComboboxInput className="bg-white" placeholder="Select a Team" />
+                <ComboboxContent className="bg-white">
+                    <ComboboxList>
+                        {TEAMS.map((t) => (
+                            <ComboboxItem key={t} value={t}>
+                                {t}
                             </ComboboxItem>
                         ))}
                     </ComboboxList>

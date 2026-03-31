@@ -1,7 +1,7 @@
 // App.jsx
 import { CountrySelCard } from './cards/Navigation/countriesSelCard';
 import { MobileNavbar } from './cards/Navigation/mobileNavbarCard';
-import {TableFiltersCard} from "./cards/Navigation/tableFiltersCard"
+import {TableFiltersCard} from "./cards/Data/tableFiltersCard"
 import useBreakpoint from './hooks/useBreakpoint';
 import MobileLayout from "@/layouts/mobileLayout"
 
