@@ -29,7 +29,7 @@ export function TableFiltersCard() {
 
       <Select value={selectedSeason ?? ""} onValueChange={(code) => setSelectedSeason(code)} >
         <SelectTrigger className="w-[160px]">
-          <SelectValue placeholder="Season" />
+          <SelectValue placeholder="Saison" />
         </SelectTrigger>
         {/* permet de mettre la direction vers le bas du select*/}
         <SelectContent position="popper" side="bottom" className="w-[160px]">  
@@ -45,7 +45,7 @@ export function TableFiltersCard() {
 
       <Select value={selectedTeam ?? ""} onValueChange={(team) => setSelectedTeam(team)}>
         <SelectTrigger className="w-[160px]">
-          <SelectValue placeholder="Team" />
+          <SelectValue placeholder="Equipe" />
         </SelectTrigger>
         {/* permet de mettre la direction vers le bas du select*/}
         <SelectContent position="popper" side="bottom" className="w-[160px]">  
