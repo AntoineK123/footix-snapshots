@@ -4,7 +4,7 @@ import { MobileNavbar } from './cards/Navigation/mobileNavbarCard';
 import {TableFiltersCard} from "./cards/Data/tableFiltersCard"
 import useBreakpoint from './hooks/useBreakpoint';
 import MobileLayout from "@/layouts/mobileLayout"
-import MatchesTable from './data/page';
+import MatchesTable from './data/footDataCard';
 
 export default function App() {
 
