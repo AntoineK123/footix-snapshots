@@ -8,7 +8,7 @@ interface NavStore {
   selectedSeason: string;
   setSelectedSeason: (season: string) => void;
   selectedTeam: string;
-  setSelectedTeam: (season: string) => void;
+  setSelectedTeam: (team: string) => void;
 }
 
 export const useDataStore = create<NavStore>((set) => ({

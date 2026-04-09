@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useCallback } from "react";
 
 type Season = { code: string };
 
@@ -18,11 +19,13 @@ const SEASONS: Season[] = [
 const TEAMS: string[] = ["Marseille", "Lyon"];
 
 export function TableFiltersCard() {
-  const selectedSeason = useDataStore((s) => s.selectedSeason);
-  const setSelectedSeason = useDataStore((s) => s.setSelectedSeason);
 
+  //evite de faire plein de const xxx = useDataStore(... et donc le rerender
+  const selectedSeason = useDataStore((s) => s.selectedSeason);
   const selectedTeam = useDataStore((s) => s.selectedTeam);
+  const setSelectedSeason = useDataStore((s) => s.setSelectedSeason);
   const setSelectedTeam = useDataStore((s) => s.setSelectedTeam);
+
 
   return (
     <div className="flex flex-wrap gap-2 rounded-xl border px-4 py-3">
@@ -32,7 +35,7 @@ export function TableFiltersCard() {
           <SelectValue placeholder="Saison" />
         </SelectTrigger>
         {/* permet de mettre la direction vers le bas du select*/}
-        <SelectContent position="popper" side="bottom" className="w-[160px]">  
+        <SelectContent position="popper" side="bottom" className="w-[160px]">
           <SelectGroup>
             {SEASONS.map((s) => (
               <SelectItem key={s.code} value={s.code} >
@@ -48,7 +51,7 @@ export function TableFiltersCard() {
           <SelectValue placeholder="Equipe" />
         </SelectTrigger>
         {/* permet de mettre la direction vers le bas du select*/}
-        <SelectContent position="popper" side="bottom" className="w-[160px]">  
+        <SelectContent position="popper" side="bottom" className="w-[160px]">
           <SelectGroup>
             {TEAMS.map((t) => (
               <SelectItem key={t} value={t}>

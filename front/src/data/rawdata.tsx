@@ -1,84 +1,84 @@
-import { matchDetails } from "./columns";
+import { matchDetails } from "@/Interfaces&Types";
 
 export const testMatches: matchDetails[] = [
-    {
-        matchId: 1,
-        matchDate: new Date("2026-03-01"),
-        HTeamName: "Lyon",
-        HTeamScore: "2",
-        ATeamName: "Marseille",
-        ATeamScore: "1"
-    },
-    {
-        matchId: 2,
-        matchDate: new Date("2026-03-02"),
-        HTeamName: "Paris SG",
-        HTeamScore: "3",
-        ATeamName: "Nice",
-        ATeamScore: "0"
-    },
-    {
-        matchId: 3,
-        matchDate: new Date("2026-03-03"),
-        HTeamName: "Lens",
-        HTeamScore: "1",
-        ATeamName: "Lille",
-        ATeamScore: "1"
-    },
-    {
-        matchId: 4,
-        matchDate: new Date("2026-03-04"),
-        HTeamName: "Monaco",
-        HTeamScore: "4",
-        ATeamName: "Toulouse",
-        ATeamScore: "1"
-    },
-    {
-        matchId: 5,
-        matchDate: new Date("2026-03-05"),
-        HTeamName: "Clermont",
-        HTeamScore: "0",
-        ATeamName: "Rennes",
-        ATeamScore: "2"
-    },
-    {
-        matchId: 6,
-        matchDate: new Date("2026-03-06"),
-        HTeamName: "Reims",
-        HTeamScore: "2",
-        ATeamName: "Strasbourg",
-        ATeamScore: "1"
-    },
-    {
-        matchId: 7,
-        matchDate: new Date("2026-03-07"),
-        HTeamName: "Montpellier",
-        HTeamScore: "0",
-        ATeamName: "Nantes",
-        ATeamScore: "0"
-    },
-    {
-        matchId: 8,
-        matchDate: new Date("2026-03-08"),
-        HTeamName: "Brest",
-        HTeamScore: "3",
-        ATeamName: "Metz",
-        ATeamScore: "1"
-    },
-    {
-        matchId: 9,
-        matchDate: new Date("2026-03-09"),
-        HTeamName: "Angers",
-        HTeamScore: "1",
-        ATeamName: "Auxerre",
-        ATeamScore: "2"
-    },
-    {
-        matchId: 10,
-        matchDate: new Date("2026-03-10"),
-        HTeamName: "Le Havre",
-        HTeamScore: "2",
-        ATeamName: "Lorient",
-        ATeamScore: "2"
-    }
+  {
+    id: 1,
+    Date: new Date("2026-03-01"),
+    HomeTeam: "Lyon",
+    FTHG: "2",
+    AwayTeam: "Marseille",
+    FTAG: "1",
+  },
+  {
+    id: 2,
+    Date: new Date("2026-03-02"),
+    HomeTeam: "Paris SG",
+    FTHG: "3",
+    AwayTeam: "Nice",
+    FTAG: "0",
+  },
+  {
+    id: 3,
+    Date: new Date("2026-03-03"),
+    HomeTeam: "Lens",
+    FTHG: "1",
+    AwayTeam: "Lille",
+    FTAG: "1",
+  },
+  {
+    id: 4,
+    Date: new Date("2026-03-04"),
+    HomeTeam: "Monaco",
+    FTHG: "4",
+    AwayTeam: "Toulouse",
+    FTAG: "1",
+  },
+  {
+    id: 5,
+    Date: new Date("2026-03-05"),
+    HomeTeam: "Clermont",
+    FTHG: "0",
+    AwayTeam: "Rennes",
+    FTAG: "2",
+  },
+  {
+    id: 6,
+    Date: new Date("2026-03-06"),
+    HomeTeam: "Reims",
+    FTHG: "2",
+    AwayTeam: "Strasbourg",
+    FTAG: "1",
+  },
+  {
+    id: 7,
+    Date: new Date("2026-03-07"),
+    HomeTeam: "Montpellier",
+    FTHG: "0",
+    AwayTeam: "Nantes",
+    FTAG: "0",
+  },
+  {
+    id: 8,
+    Date: new Date("2026-03-08"),
+    HomeTeam: "Brest",
+    FTHG: "3",
+    AwayTeam: "Metz",
+    FTAG: "1",
+  },
+  {
+    id: 9,
+    Date: new Date("2026-03-09"),
+    HomeTeam: "Angers",
+    FTHG: "1",
+    AwayTeam: "Auxerre",
+    FTAG: "2",
+  },
+  {
+    id: 10,
+    Date: new Date("2026-03-10"),
+    HomeTeam: "Le Havre",
+    FTHG: "2",
+    AwayTeam: "Lorient",
+    FTAG: "2",
+  },
 ];
