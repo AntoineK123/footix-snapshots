@@ -16,6 +16,7 @@ export const getMatches = async (
   //on met les filtered params
   const res = await api.get<MatchesResponse>("/matches", { params:filteredParams });
 
+  console.log(await res)
   return res.data.data.map((m) => {
     const homeScore = m.FTHG;
     const awayScore = m.FTAG;
@@ -34,7 +35,7 @@ export const getMatches = async (
 
     return {
       id: m.id,
-      date: new Date("2024/04/03"),
+      date: new Date("2024-04-03"),
       homeTeam: m.HomeTeam,
       awayTeam: m.AwayTeam,
       homeScore,

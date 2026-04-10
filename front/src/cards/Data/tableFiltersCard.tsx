@@ -7,13 +7,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useCallback } from "react";
 
-type Season = { code: string };
+type Season = { code: string , label:string };
 
 const SEASONS: Season[] = [
-  { code: "2024/2025" },
-  { code: "2023/2024" },
+  { code: "2425" , label:"2024/2025" },
+  { code: "2324", label:"2023/2024" },
 ];
 
 const TEAMS: string[] = ["Marseille", "Lyon"];
@@ -39,7 +38,7 @@ export function TableFiltersCard() {
           <SelectGroup>
             {SEASONS.map((s) => (
               <SelectItem key={s.code} value={s.code} >
-                {s.code}
+                {s.label}
               </SelectItem>
             ))}
           </SelectGroup>
