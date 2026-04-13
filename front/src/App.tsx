@@ -1,24 +1,39 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { CountrySelCard } from './cards/Navigation/countriesSelCard';
 import { MobileNavbar } from './cards/Navigation/mobileNavbarCard';
-import { TableFiltersCard } from "./cards/Data/tableFiltersCard"
-import useBreakpoint from './hooks/useBreakpoint';
 import MobileLayout from "@/layouts/mobileLayout"
-import MatchesTable from './data/footDataCard';
+import { Routes, Route } from "react-router-dom"
+//pour les info bulles
+import { TooltipProvider } from "@/components/ui/tooltip"
+import DataPageCard from "./pages/DataPage";
+import HomePageCard from "./pages/HomePage";
+import FaqPageCard from "./pages/FaqPage";
+
 
 const queryClient = new QueryClient()  // ← en dehors du composant
 
 export default function App() {
-  const isDesktop = useBreakpoint(1024);
 
   return (
     <QueryClientProvider client={queryClient}>  {/* ← wrap tout */}
-      <MobileLayout>
-        <MobileNavbar/>
-        <CountrySelCard/>
-        <TableFiltersCard/>
-        <MatchesTable/>
-      </MobileLayout>
+      <TooltipProvider>
+        <MobileLayout>
+          <MobileNavbar />
+          <Routes>
+            <Route path="/data" element={
+              <><DataPageCard/></>
+            } />
+            <Route path="/" element={
+              <><HomePageCard/></>
+            } />
+            <Route path="/faq" element={
+              <><FaqPageCard/></>
+            } />
+            <Route path="/charts" element={
+              <><span>En cours de dev 😉</span></>
+            } />
+          </Routes>
+        </MobileLayout>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }

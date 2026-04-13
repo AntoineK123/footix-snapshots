@@ -6,14 +6,7 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 type Country = { code: string; label: string };
 
 const COUNTRIES: Country[] = [
-    { code: "fr", label: "France" },
-    { code: "en", label: "Angleterre" },
-    { code: "es", label: "Espagne" },
-    { code: "de", label: "Allemagne" },
-    { code: "it", label: "Italie" },
-    { code: "be", label: "Belgique" },
-    { code: "pt", label: "Portugal" },
-    { code: "tr", label: "Turquie" },
+    { code: "fr", label: "France - Ligue 1" },
 ];
 
 
@@ -31,7 +24,7 @@ return (
       spacing={8} //equivalent du gap entre elements
       value={selectedCountry ?? ""} 
       onValueChange={(code) => {setSelectedCountry(code) }} //radix ajoute automatiquement le data-state-on sur la valeur actuelle selectionnee
-      className="flex flex-wrap md:flex-col gap-2 cursor-pointer" //on met le font par defaut 
+      className="flex flex-wrap gap-2 cursor-pointer" //on met le font par defaut 
     >
       {COUNTRIES.map((c) => (
         <ToggleGroupItem

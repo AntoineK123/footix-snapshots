@@ -104,3 +104,29 @@ export type MergedMatchesAndStats = {
     away: number;
   };
 };
+
+
+
+// FOR FILTERS : 
+
+export type ApiGetTeamsFiltersbySeasonAndDivRes = {
+  Div:string,
+  DivLabel:string,
+  Season:string,
+  SeasonLabel:string,
+  Teams:string
+}
+
+
+export type TeamsFiltersbySeasonAndDiv = {
+  Div:string,
+  DivLabel:string,
+  Season:string,
+  SeasonLabel:string,
+  TeamsArr:string[]
+}
+
+export type Country = { code: string; label: string };
+export type Season = { code: string , label:string };
+
+

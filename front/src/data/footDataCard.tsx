@@ -59,9 +59,9 @@ export default function MatchesTable() {
       {/* affichage conditionnel */}
       {(isLoadingMatches||isLoadingStats) ? (
         <p>Loading matches...</p>
-      ) : (
+      ) : selectedSeason.length>1?(
         <DataTable columns={columns} data={mergedDatas || []} />
-      )}
+      ):<p>Sélectionnez une saison</p>}
     </div>
   )
 }

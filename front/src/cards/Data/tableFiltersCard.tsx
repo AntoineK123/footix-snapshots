@@ -7,15 +7,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useFilterslabels } from "@/hooks/useFiltersLabels";
 
-type Season = { code: string , label:string };
-
-const SEASONS: Season[] = [
-  { code: "2425" , label:"2024/2025" },
-  { code: "2324", label:"2023/2024" },
-];
-
-const TEAMS: string[] = ["Marseille", "Lyon"];
 
 export function TableFiltersCard() {
 
@@ -24,6 +17,11 @@ export function TableFiltersCard() {
   const selectedTeam = useDataStore((s) => s.selectedTeam);
   const setSelectedSeason = useDataStore((s) => s.setSelectedSeason);
   const setSelectedTeam = useDataStore((s) => s.setSelectedTeam);
+
+  // on fetch les filters
+  const { data, isLoading, error } = useFilterslabels();
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error</div>;
 
 
   return (
@@ -36,9 +34,9 @@ export function TableFiltersCard() {
         {/* permet de mettre la direction vers le bas du select*/}
         <SelectContent position="popper" side="bottom" className="w-[160px]">
           <SelectGroup>
-            {SEASONS.map((s) => (
-              <SelectItem key={s.code} value={s.code} >
-                {s.label}
+            {data?.map((f) => (
+              <SelectItem key={f.Season} value={f.Season} >
+                {f.SeasonLabel}
               </SelectItem>
             ))}
           </SelectGroup>
@@ -52,15 +50,15 @@ export function TableFiltersCard() {
         {/* permet de mettre la direction vers le bas du select*/}
         <SelectContent position="popper" side="bottom" className="w-[160px]">
           <SelectGroup>
-            {TEAMS.map((t) => (
-              <SelectItem key={t} value={t}>
-                {t}
-              </SelectItem>
-            ))}
+            {Boolean(data) === true && data?.find(f => selectedSeason === f.Season)?.TeamsArr.slice().sort((a, b) => a.localeCompare(b)).map((t) =>
+                <SelectItem key={t} value={t}>
+                  {t}
+                </SelectItem>)
+            }
           </SelectGroup>
         </SelectContent>
       </Select>
 
-    </div>
+    </div >
   );
 }

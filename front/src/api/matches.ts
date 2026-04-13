@@ -22,14 +22,14 @@ export const getMatches = async (
     const awayScore = m.FTAG;
 
     //on calcule ici automatiquement le resultat de notre equippe si il y a un team dans nos params
-    let teamResult: "W" | "L" | "D" | undefined = undefined;
+    let teamResult: "W" | "L" | "D" | undefined = undefined; //en anglais Win Loose Draw
     if (params.team) {
       if (params.team === m.HomeTeam) {
         teamResult =
-          m.FTR === "H" ? "W" : "L";
+          m.FTR === "H" ? "W" : "L"; //en anglais Home Win Loose
       } else if (params.team === m.AwayTeam) {
         teamResult =
-          m.FTR === "A" ? "W" : "L";
+          m.FTR === "A" ? "W" : "L"; //en anglais Away Win Loose
       }
     }
 
