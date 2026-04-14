@@ -18,6 +18,7 @@ if current_dir not in sys.path:
 import AnalyseDfParis
 import CompileDataParis
 import pandas as pd
+from datetime import datetime
 
 "La fonction rentabilité permet d'analyser la performance d'un résultat sur une ou plusieurs saisons et pendant une période plus ou moins spécifique"
 
@@ -83,7 +84,7 @@ def Rentabilite(resultat : str,choix: str, lienDos: str,saison="",debut=0,fin=20
     #on ne prendra pas en compte de critère de date on regardera l'évolution de la rentabilité uniquement sur une seule saison
     
 
-def EvolRentabilite(resultat : str,choix: str, lienDos: str,saison="",debut=20180101,fin=20251009):
+def EvolRentabilite(resultat : str,choix: str, lienDos: str,saison="",debut=20100101,fin=20270101):
         
         
     #on désactive les prints qui n'apportent rien 
@@ -152,7 +153,7 @@ def EvolRentabilite(resultat : str,choix: str, lienDos: str,saison="",debut=2018
     return(dfResEvol)
 
     
-def MultiEvolRenta(resultat : str,multiequi : list ,choix1equi: str, lienDos: str,saison="",debut=20180101,fin=20251009):
+def MultiEvolRenta(resultat : str,multiequi : list ,choix1equi: str, lienDos: str,saison="",debut=20100101,fin=20270101):
     
     #si dans choix on a "toutesliste" on renvoie la liste de toutes les equipes de la saison
     
@@ -193,7 +194,7 @@ def MultiEvolRenta(resultat : str,multiequi : list ,choix1equi: str, lienDos: st
                 frames=[dfmultirenta, dfEvolRenta]
                 dfmultirenta= pd.concat(frames, sort=False,ignore_index=True)
 
-        tocsv.export_df_to_csv(dfmultirenta,r"C:\Users\kulekci antoine\Documents\DATA","export16h101104")
+        tocsv.export_df_to_csv(dfmultirenta,r"C:\Users\kulekci antoine\Documents\DATA","export_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
         return(dfmultirenta)
     
   
@@ -204,7 +205,7 @@ def MultiEvolRenta(resultat : str,multiequi : list ,choix1equi: str, lienDos: st
                 #lequipe en question est bien présente dans dons données on fait l'analyse
                 
                 dfmultirenta=EvolRentabilite(resultat,choix1equi,lienDos,saison,debut,fin)
-                tocsv.export_df_to_csv(dfmultirenta,r"C:\Users\kulekci antoine\Documents\DATA","export14h031104")
+                tocsv.export_df_to_csv(dfmultirenta,r"C:\Users\kulekci antoine\Documents\DATA","export_" + datetime.now().strftime("%Y%m%d_%H%M%S"))
                 return(dfmultirenta)
     
         else:

@@ -38,6 +38,8 @@ def compiledata(lienDossier: str,equipe: str, saison: str,debut=0,fin=20500101):
         #on importe un fichier csv avec cette commande
         df=pd.read_csv(lien, sep=',',encoding='unicode_escape',on_bad_lines='skip')
         
+
+        
         #on ajoute le "code" de la saison inclus dans le nom du fichier "2425" pour 20242025 par exemple
         df['Saison']=str(lien[-8:-4])
         
@@ -184,7 +186,6 @@ def compiledata(lienDossier: str,equipe: str, saison: str,debut=0,fin=20500101):
 # - pbB365DA : probabilité implicite combinée (Draw/Away)
 #
 # =========================
-    
     return(dfComp)
 
 

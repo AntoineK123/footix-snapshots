@@ -95,22 +95,22 @@ def analysedf(dfpar,resultat,equipe,saison):
             
             if (resultat =="V" and dfpar.at[k,'HomeTeam']==equipe) or (resultat =="D" and dfpar.at[k,'AwayTeam']==equipe) :
                dfpar.at[k,'PNL']=(float(dfpar.at[k,'CoteResultat'])-1)*100
-               dfpar.at[k,'teamResult']+="V"
+               dfpar.at[k,'teamResult']="V"
         
             if (resultat =="VN" and dfpar.at[k,'HomeTeam']==equipe) or (resultat =="DN" and dfpar.at[k,'AwayTeam']==equipe) :
                dfpar.at[k,'PNL']=(float(dfpar.at[k,'CoteResultat'])-1)*100
-               dfpar.at[k,'teamResult']+="V"
+               dfpar.at[k,'teamResult']="V"
         
         if dfpar.at[k,'FTR']=="A" :
             if (resultat =="V" and dfpar.at[k,'AwayTeam']==equipe) or (resultat =="D" and dfpar.at[k,'HomeTeam']==equipe) :
                dfpar.at[k,'PNL']=(float(dfpar.at[k,'CoteResultat'])-1)*100
-               dfpar.at[k,'teamResult']+="V"
+               dfpar.at[k,'teamResult']="V"
             if (resultat =="VN" and dfpar.at[k,'AwayTeam']==equipe) or (resultat =="DN" and dfpar.at[k,'HomeTeam']==equipe) :
                 dfpar.at[k,'PNL']=(float(dfpar.at[k,'CoteResultat'])-1)*100
-                dfpar.at[k,'teamResult']+="V"
+                dfpar.at[k,'teamResult']="V"
                 
         if dfpar.at[k,'FTR']=="D" :
-            dfpar.at[k,'teamResult']+="N"
+            dfpar.at[k,'teamResult']="N"
             if resultat =="N" :
                dfpar.at[k,'PNL']=(float(dfpar.at[k,'CoteResultat'])-1)*100
             if resultat == "DN" or resultat =="VN" : 
@@ -269,7 +269,7 @@ def analysedf(dfpar,resultat,equipe,saison):
     
     
     #prepare le dataframe résultat
-    resultatdf={'DateListe':[DateListe],'Saison':[saison],'Equipe':[equipe],'TRJmoy':[moyTrj],'ROI':[ROI],'Nbrdematchs': [nbrmatch],'MoyCoteResultat':[moycotequi],'ROI-10J':[ROImoin10J],'ROI-5J':[ROImoin5J],'ROI-3J':[ROImoin3J],'ROI-2J':[ROImoin2J],'ROIJJ-1':[ROImoin1JJ],'ROIJ':[ROIJ],'CoteJ':[CoteJ],'CoteInvJ':[CoteInv],'last5teamResults':[last5matchesTeamResult]}
+    resultatdf={'DateListe':[DateListe],'Saison':[saison],'Equipe':[equipe],'TRJmoy':[moyTrj],'ROI':[ROI],'Nbrdematchs': [nbrmatch],'MoyCoteResultat':[moycotequi],'ROI-10J':[ROImoin10J],'ROI-5J':[ROImoin5J],'ROI-3J':[ROImoin3J],'ROI-2J':[ROImoin2J],'ROIJJ-1':[ROImoin1JJ],'ROIJ':[ROIJ],'CoteJ':[CoteJ],'CoteInvJ':[CoteInv],'Last5Results':[last5matchesTeamResult]}
     
     #on sort la liste des saisons du dataframe
     liSai=dfpar['Saison'].tolist()
